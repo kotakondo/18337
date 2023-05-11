@@ -1,6 +1,8 @@
 # 18.337 FINAL PROJECT: PERCEPTION-AWARE MULTIAGENT TRAJECTORY PLANNER USING IMITATION LEARNING #
 
-[![18.337 FINAL PROJECT: PERCEPTION-AWARE MULTIAGENT TRAJECTORY PLANNER USING IMITATION LEARNING](./panther/imgs/3-agent-2-obsts-primer.gif)]("Deep-PANTHER: Learning-Based Perception-Aware Trajectory Planner in Dynamic Environments")  
+<p align="center">
+<img src="./panther/imgs/3-agent-2-obsts-primer.gif" width="700">
+</p>
 
 We extended our prior work Deep-PANTHER, which is a trajectory planner for a single agent with single obstacles. In this project, we extend it to a multi-agent planner that can handle multiple obstacles. We also developed an imitation learning-based approach that can generate both position and yaw trajectories, whereas Deep-PANTHER only produced position trajectories.
 
@@ -17,7 +19,7 @@ Wait until the terminal says `Planner initialized`. Then, you can press G (or cl
 ## Julia MPI Training
 
 You first need to install a linear solver (see instructions below). 
-Then, you can train a new policy but simply running `main.jl` inside the `panther/julia` folder. 
+Then, you can train a new policy by simply running `main.jl` inside the `panther/julia` folder. If you would like to specify the number of processer, you can use `-np` flag.
 
 
 ## General Setup
