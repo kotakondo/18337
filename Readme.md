@@ -79,8 +79,8 @@ And finally download the repo and compile it:
 sudo apt-get install git-lfs ccache 
 cd ~/Desktop/
 mkdir ws && cd ws && mkdir src && cd src
-git clone https://github.com/kotakondo/18337
-cd deep_panther
+git clone https://github.com/kotakondo/18337.git
+cd 18337
 git lfs install
 git submodule init && git submodule update
 cd panther_compression/imitation
