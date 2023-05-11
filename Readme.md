@@ -6,21 +6,19 @@
 
 We extended our prior work Deep-PANTHER, which is a trajectory planner for a single agent with single obstacles. In this project, we extend it to a multi-agent planner that can handle multiple obstacles. We also developed an imitation learning-based approach that can generate both position and yaw trajectories, whereas Deep-PANTHER only produced position trajectories.
 
-## Usage
+## Simulations
 
-Simply use:
 ```bash
-roslaunch panther simulation.launch
-
+cd panther/other/sim
+python run_many_sims.py
 ```
 
-Wait until the terminal says `Planner initialized`. Then, you can press G (or click the option 2D Nav Goal on the top bar of RVIZ) and click any goal for the drone. By default, `simulation.launch` will use the policy Hung_dynamic_obstacles.pt (which was trained with trefoil-knot trajectories). You can change the trajectory followed by the obstacle during testing using the `type_of_obst_traj` field of the launch file.
+`run_many_sims.py` will open a tmux where all the necessary commands are executed. Goal Reached Indicator runs on the original window, and it shows either `False` or `True` at 1 Hz. `False` indicates agents have not reached goals, and `True` indicates they reached goals. Once all the drones reached goals, the simulation environment automatically closes. 
 
 ## Julia MPI Training
 
 You first need to install a linear solver (see instructions below). 
-Then, you can train a new policy by simply running `main.jl` inside the `panther/julia` folder. If you would like to specify the number of processer, you can use `-np` flag.
-
+Then, you can train a new policy by simply running `main.jl` inside the `panther/julia` folder. If you would like to specify the number of processer, you can use `-np` flag. (eg. ~/.julia/bin/mpiexecjl -np 5 julia main.jl)
 
 ## General Setup
 
