@@ -1,6 +1,6 @@
 # 18.337 FINAL PROJECT: PERCEPTION-AWARE MULTIAGENT TRAJECTORY PLANNER USING IMITATION LEARNING #
 
-[![Deep-PANTHER: Learning-Based Perception-Aware Trajectory Planner in Dynamic Environments](./panther/imgs/deep_panther.gif)](https://www.youtube.com/watch?v=53GBjP1jFW8 "Deep-PANTHER: Learning-Based Perception-Aware Trajectory Planner in Dynamic Environments")  
+[![18.337 FINAL PROJECT: PERCEPTION-AWARE MULTIAGENT TRAJECTORY PLANNER USING IMITATION LEARNING](./panther/imgs/3-agent-2-obsts-primer.gif)]("Deep-PANTHER: Learning-Based Perception-Aware Trajectory Planner in Dynamic Environments")  
 
 We extended our prior work Deep-PANTHER, which is a trajectory planner for a single agent with single obstacles. In this project, we extend it to a multi-agent planner that can handle multiple obstacles. We also developed an imitation learning-based approach that can generate both position and yaw trajectories, whereas Deep-PANTHER only produced position trajectories.
 
