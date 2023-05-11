@@ -4,6 +4,22 @@
 
 We extended our prior work Deep-PANTHER, which is a trajectory planner for a single agent with single obstacles. In this project, we extend it to a multi-agent planner that can handle multiple obstacles. We also developed an imitation learning-based approach that can generate both position and yaw trajectories, whereas Deep-PANTHER only produced position trajectories.
 
+## Usage
+
+Simply use:
+```bash
+roslaunch panther simulation.launch
+
+```
+
+Wait until the terminal says `Planner initialized`. Then, you can press G (or click the option 2D Nav Goal on the top bar of RVIZ) and click any goal for the drone. By default, `simulation.launch` will use the policy Hung_dynamic_obstacles.pt (which was trained with trefoil-knot trajectories). You can change the trajectory followed by the obstacle during testing using the `type_of_obst_traj` field of the launch file.
+
+## Julia MPI Training
+
+You first need to install a linear solver (see instructions below). 
+Then, you can train a new policy but simply running `main.jl` inside the `panther/julia` folder. 
+
+
 ## General Setup
 
 Our planner has been tested with Ubuntu 20.04/ROS Noetic.
@@ -76,28 +92,6 @@ printf '\nsource PATH_TO_YOUR_WS/devel/setup.bash' >> ~/.bashrc #Remember to cha
 printf '\nexport PYTHONPATH="${PYTHONPATH}:$(rospack find panther)/../panther_compression"' >> ~/.bashrc 
 source ~/.bashrc
 ```
-
-## Usage
-
-Simply use:
-```bash
-roslaunch panther simulation.launch
-
-```
-
-Wait until the terminal says `Planner initialized`. Then, you can press G (or click the option 2D Nav Goal on the top bar of RVIZ) and click any goal for the drone. By default, `simulation.launch` will use the policy Hung_dynamic_obstacles.pt (which was trained with trefoil-knot trajectories). You can change the trajectory followed by the obstacle during testing using the `type_of_obst_traj` field of the launch file.
-
-You can also use policies trained using a static obstacle. Simply change the field `student_policy_path` of `simulation.launch`. The available policies have the format `A_epsilon_B.pt`, where `A` is the algorithm used: Hungarian (i.e., LSA), RWTAc, or RWTAr. `B` is the epsilon used. Note that this epsilon is irrelevant for the LSA algorithm. Check the paper for further details. 
-
-
-If you want to...
-
-* **Use the expert:** You first need to install a linear solver (see instructions below). Then, you can use the expert by simply setting `use_expert: true`, `use_student: false` , and `pause_time_when_replanning:true` in `panther.yaml` and running `roslaunch panther simulation.launch`. 
-
-* **Modify the optimization problem:**, You will need to have MATLAB installed (especifically, you will need the `Symbolic Math Toolbox` and the `Phased Array System Toolbox` installed), and follow the steps detailed in the MATLAB section below. You can then make any modification in the optimization problem by modifying the file `main.m`, and then running it. This will generate all the necessary `.casadi` files in the `casadi_generated_files` folder, which will be read by the C++ code.
-
-* **Train the policy:** You first need to install a linear solver (see instructions below). Then, you can train a new policy but simply running `python3 policy_compression_train.py` inside the `panther_compression` folder. 
-
 
 <details>
   <summary> <b>MATLAB (optional dependency)</b></summary>
