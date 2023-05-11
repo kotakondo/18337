@@ -6,7 +6,7 @@ We extended our prior work Deep-PANTHER, which is a trajectory planner for a sin
 
 ## General Setup
 
-Deep-PANTHER has been tested with Ubuntu 20.04/ROS Noetic. Other Ubuntu/ROS version may need some minor modifications, feel free to [create an issue](https://github.com/mit-acl/panther/issues) if you have any problems.
+Our planner has been tested with Ubuntu 20.04/ROS Noetic.
 
 The instructions below assume that you have ROS Noetic installed on your Linux machine.
 
@@ -61,7 +61,7 @@ And finally download the repo and compile it:
 sudo apt-get install git-lfs ccache 
 cd ~/Desktop/
 mkdir ws && cd ws && mkdir src && cd src
-git clone https://github.com/mit-acl/deep_panther
+git clone https://github.com/kotakondo/18337
 cd deep_panther
 git lfs install
 git submodule init && git submodule update
